@@ -3,6 +3,7 @@ const cors = require("cors");
 const path = require("path");
 
 const questionRoutes = require("./routes/questionRoutes");
+const authRoutes = require("./routes/authRoutes"); // Подключаем роуты
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/questions", questionRoutes);
+app.use("/auth", authRoutes);
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
