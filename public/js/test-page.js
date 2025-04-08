@@ -57,12 +57,14 @@ async function submitAnswers() {
     }
 
     try {
-        const response = await fetch("http://192.168.0.126:3000/submit-answers", {
+        const response = await fetch("http://192.168.0.126:3000/questions/submit-answers", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ group: localStorage.getItem("selectedGroup"), answers })
         });
-
+		
+		console.log({ group: localStorage.getItem("selectedGroup"), answers });
+		
         const result = await response.json();
         localStorage.setItem("testResults", JSON.stringify(result));
 

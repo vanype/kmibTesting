@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     const testForm = document.getElementById("testForm");
-    const adminButton = document.getElementById("admin");
 
     if (testForm) {
         testForm.addEventListener("submit", function (event) {
@@ -25,12 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Переход к тестам
             window.location.href = "test-page.html";
-        });
-    }
-
-    if (adminButton) {
-        adminButton.addEventListener("click", function () {
-            window.location.href = "admin.html";
         });
     }
 });

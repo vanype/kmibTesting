@@ -3,22 +3,28 @@ const cors = require("cors");
 const path = require("path");
 
 const questionRoutes = require("./routes/questionRoutes");
-const authRoutes = require("./routes/authRoutes"); // Подключаем роуты
+const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Middleware
 app.use(cors());
 app.use(express.json());
+
+// 📌 Роут на главную страницу (вручную отправляем login.html)
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "login.html"));
+});
+
+// 📦 Статические файлы
 app.use(express.static(path.join(__dirname, "public")));
 
+// 🧭 Роуты
 app.use("/questions", questionRoutes);
 app.use("/auth", authRoutes);
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
+// 🟢 Запуск сервера
 app.listen(PORT, "192.168.0.126", () => {
     console.log(`✅ Сервер запущен на http://192.168.0.126:${PORT}`);
 });
