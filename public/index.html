@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMIB Tasty - Система тестирования</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            height: 100%;
+            border: none;
+            margin-bottom: 1rem;
+            border-radius: 12px !important;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+        
+        .card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .card-title {
+            font-weight: 700 !important;
+            margin-bottom: 0.8rem !important;
+        }
+        
+        .card-text {
+            font-weight: 500 !important;
+            color: #555 !important;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 1.8rem 0;
+            }
+            
+            .display-4 {
+                font-size: 2.2rem !important;
+                line-height: 1.3;
+            }
+            
+            .h3 {
+                font-size: 1.3rem !important;
+            }
+            
+            .btn-lg {
+                padding: 0.6rem 1.2rem;
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+            
+            .card-body {
+                padding: 1.8rem !important;
+            }
+            
+            .card-icon {
+                font-size: 2rem;
+            }
+            
+            .card-title {
+                font-size: 1.1rem !important;
+            }
+            
+            .card-text {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Хедер -->
+    <header class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">
+                Добро пожаловать в KMIB Tasty
+            </h1>
+            <p class="h3 mb-4">приложение для самопроверки знаний студентов</p>
+            <a href="#" class="btn btn-light btn-lg fw-bold">
+                Начать тестирование <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Карточки -->
+    <main class="container mb-5">
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card feature-card h-100 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-pencil-square card-icon text-primary"></i>
+                        <h3 class="card-title">Пройди пробное тестирование</h3>
+                        <p class="card-text">Проверь свои знания в условиях, приближенных к реальному экзамену</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card feature-card h-100 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-clipboard-data card-icon text-success"></i>
+                        <h3 class="card-title">Узнай результаты тестов</h3>
+                        <p class="card-text">Мгновенный доступ к детальным результатам после завершения</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card feature-card h-100 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-lightbulb card-icon text-warning"></i>
+                        <h3 class="card-title">Выяви проблемные темы</h3>
+                        <p class="card-text">Получи анализ слабых мест и персональные рекомендации</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card feature-card h-100 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-graph-up card-icon text-danger"></i>
+                        <h3 class="card-title">Улучшай свой результат</h3>
+                        <p class="card-text">Систематические тренировки для повышения среднего балла</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
