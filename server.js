@@ -14,7 +14,7 @@ app.use(express.json());
 
 // 📌 Роут на главную страницу (вручную отправляем login.html)
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "login.html"));
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // 📦 Статические файлы

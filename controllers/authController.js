@@ -3,7 +3,7 @@ const AuthModel = require("../models/authModel");
 const bcrypt = require("bcrypt"); // Подключаем bcrypt
 
 exports.registerUser = (req, res) => {
-    const { user_login, user_password, user_role } = req.body;
+    const { user_login, user_password, user_role, user_group } = req.body;
 
     if (!user_login || !user_password) {
         return res.status(400).json({ error: "Все поля обязательны!" });
@@ -53,7 +53,7 @@ exports.login = (req, res) => {
             if (!isMatch) return res.status(401).json({ error: "Неверный логин или пароль" });
 
             // Если пароль правильный, можно выдать токен или просто вернуть успех
-            res.json({ message: "Успешный вход!", user: { username: user.user_login, role: user.role } });
+            res.json({ message: "Успешный вход!", user: { username: user.login, role: user.role, group: user.group } });
         });
     });
 };

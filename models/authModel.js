@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt"); // Подключаем bcrypt
 const SALT_ROUNDS = 10; // Количество раундов для хеширования
 
 function create_user(userData, callback) {
-    const { user_login, user_password, user_role = "user" } = userData; // Значение по умолчанию "user"
+    const { user_login, user_password, user_role = "user", user_group } = userData; // Значение по умолчанию "user"
 
     db.get("SELECT id FROM users WHERE login = ?", [user_login], (err, row) => {
         if (err) return callback(err);
@@ -15,8 +15,8 @@ function create_user(userData, callback) {
             if (err) return callback(err);
 
             db.run(
-                `INSERT INTO users (login, password, role) VALUES (?, ?, ?)`,
-                [user_login, hashedPassword, user_role],
+                `INSERT INTO users (login, password, role, [group]) VALUES (?, ?, ?, ?)`,
+                [user_login, hashedPassword, user_role, user_group],
                 function (err) {
                     if (err) return callback(err);
                     callback(null, this.lastID);
@@ -50,7 +50,7 @@ function login(userData, callback)
 function getUser(username, callback) {
     if (!username) {
         // Если логин не указан — вернуть всех пользователей
-        db.all("SELECT login, role, password FROM users", [], (err, rows) => {
+        db.all("SELECT login, role, password, [group] FROM users", [], (err, rows) => {
             if (err) {
                 return callback(err);
             }
@@ -58,13 +58,18 @@ function getUser(username, callback) {
         });
     } else {
         // Ищем конкретного пользователя
-        db.get("SELECT login, role, password FROM users WHERE login = ?", [username], (err, row) => {
+        db.get("SELECT login, role, password, [group] FROM users WHERE login = ?", [username], (err, row) => {
             if (err) {
                 return callback(err);
             }
             return callback(null, row);
         });
     }
+}
+
+function getUserData(username,callback)
+{
+	
 }
 
 
