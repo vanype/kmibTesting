@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Результаты теста</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        background-color: #f8f9fa; /* bg-light */
+        display: flex;
+        justify-content: center;
+        padding: 2rem 1rem;
+        min-height: 100vh;
+        /* Убрали align-items-center и vh-100, чтобы страница скроллилась */
+      }
+      .container {
+        max-width: 400px;
+        width: 100%;
+        background: white;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+        overflow-y: auto;
+        max-height: 90vh; /* Ограничиваем высоту контейнера, чтобы был скролл */
+      }
+    </style>
 </head>
-<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
-    <div class="container text-center bg-white p-4 rounded shadow" style="max-width: 400px;">
+<body>
+    <div class="container text-center">
         <h1 class="mb-3">Результаты теста</h1>
         <p id="result-text" class="fw-bold fs-5">Загрузка результатов...</p>
-		
         <p id="rate-text" class="fw-bold fs-5">Загрузка результатов...</p>
-		
         <button class="btn btn-primary w-100 mt-3" onclick="window.location.href='index.html'">На главную</button>
         <button class="btn btn-primary w-100 mt-3" onclick="window.location.href='profile.html'">В профиль</button>
     </div>
