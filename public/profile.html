@@ -30,9 +30,11 @@
         }
         
         .container {
-            padding: 16px;
-            max-width: 100%;
-        }
+			padding: 16px;
+			max-width: 100%;
+			padding-bottom: 80px; /* ← добавь это */
+		}
+
         
         .header {
             display: flex;
@@ -278,7 +280,7 @@
 <body>
     <div class="header">
         <h1>Профиль</h1>
-        <button class="btn btn-outline" style="padding: 6px 10px; font-size: 12px;">Выйти</button>
+        <a href="index.html" class="btn btn-outline" style="padding: 6px 10px; font-size: 12px;">Выйти</a>
     </div>
     
     <div class="container">
@@ -290,78 +292,60 @@
                     <p  id="user-group" class="user-group">Null</p>
                 </div>
             </div>
-            <div class="progress-container">
-                <div class="progress-bar" style="width: 87%"></div>
-            </div>
+           
         </div>
-        
-        <div class="stats-container">
-            <div class="stat-card">
-                <div class="stat-value">0</div>
-                <div class="stat-label">Пройдено тестов</div>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-value">0</div>
-                <div class="stat-label">Средний балл</div>
-            </div>
-
-        </div>
+    
         
         <h2 class="section-title">Активные тесты</h2>
         <div class="tests-list">
             <div class="test-card">
                 <div class="test-header">
-                    <div id="group" class="test-name">Веб-технологии</div>
+                    <div id="web-tech" class="test-name">Веб-технологии</div>
         
                 </div>
                 <div class="test-footer">
-                    <span class="status status-completed">0/100</span>
+                    <span id="web-tech prog"class="status status-completed">Ваш результат: </span>
                     <button id="start_test_0" class="btn btn-primary">Приступить</button>
                 </div>
             </div>
             
             <div class="test-card">
                 <div class="test-header">
-                    <div class="test-name">Базы данных</div>
-                    <div class="test-date">10.05.2023</div>
+                    <div id="db" class="test-name">Базы данных</div>
                 </div>
                 <div class="test-footer">
-                    <span class="status status-completed">85/100</span>
-                    <button class="btn btn-primary">Посмотреть</button>
+                    <span id="db prog"class="status status-completed">Ваш результат: </span>
+                    <button id="start_test_1" class="btn btn-primary">Приступить</button>
                 </div>
             </div>
             
             <div class="test-card">
                 <div class="test-header">
-                    <div class="test-name">Веб-разработка</div>
-                    <div class="test-date">05.05.2023</div>
+                    <div id="web-dev" class="test-name">Веб-разработка</div>
                 </div>
                 <div class="test-footer">
-                    <span class="status status-completed">78/100</span>
-                    <button class="btn btn-primary">Посмотреть</button>
+                    <span id="web-dev prog"class="status status-completed">Ваш результат: </span>
+                    <button id="start_test_2" class="btn btn-primary">Приступить</button>
                 </div>
             </div>
             
             <div class="test-card">
                 <div class="test-header">
-                    <div class="test-name">JavaScript</div>
-                    <div class="status status-in-progress">В процессе</div>
+                    <div id="js" class="test-name">JavaScript</div>
                 </div>
                 <div class="test-footer">
-                    <span style="color: var(--light-text); font-size: 12px;">Прогресс: 45%</span>
-                    <button class="btn btn-primary">Продолжить</button>
+                    <span id="js prog"class="status status-completed">Ваш результат: </span>
+                    <button id="start_test_3" class="btn btn-primary">Приступить</button>
                 </div>
             </div>
             
             <div class="test-card">
                 <div class="test-header">
-                    <div class="test-name">Кибербезопасность</div>
-                    <div class="status status-not-started">Не начато</div>
+                    <div id="cyber" class="test-name">Кибербезопасность</div>
                 </div>
                 <div class="test-footer">
-                    <span style="color: var(--light-text); font-size: 12px;">Доступен с 01.06</span>
-                    <button class="btn btn-outline">Начать</button>
+                    <span id="cyber prog"class="status status-completed">Ваш результат: </span>
+                    <button id="start_test_4" class="btn btn-primary">Приступить</button>
                 </div>
             </div>
         </div>
@@ -369,21 +353,21 @@
  
     </div>
     
-    <div class="tab-bar">
-        <a href="#" class="tab-item active">
-            <span class="tab-icon">🏠</span>
-            <span>Главная</span>
-        </a>
-        <a href="#" class="tab-item">
-            <span class="tab-icon">📚</span>
-            <span>Тесты</span>
-        </a>
-        <a href="#" class="tab-item">
-            <span class="tab-icon">📊</span>
-            <span>Статистика</span>
-        </a>
+    <!-- <div class="tab-bar"> -->
+        <!-- <a href="#" class="tab-item active"> -->
+            <!-- <span class="tab-icon">🏠</span> -->
+            <!-- <span>Главная</span> -->
+        <!-- </a> -->
+        <!-- <a href="#" class="tab-item"> -->
+            <!-- <span class="tab-icon">📚</span> -->
+            <!-- <span>Тесты</span> -->
+        <!-- </a> -->
+        <!-- <a href="#" class="tab-item"> -->
+            <!-- <span class="tab-icon">📊</span> -->
+            <!-- <span>Статистика</span> -->
+        <!-- </a> -->
 
-    </div>
+    <!-- </div> -->
 	<script src="js/profile.js"></script>
 </body>
 </html>

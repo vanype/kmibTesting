@@ -53,7 +53,8 @@ exports.login = (req, res) => {
             if (!isMatch) return res.status(401).json({ error: "Неверный логин или пароль" });
 
             // Если пароль правильный, можно выдать токен или просто вернуть успех
-            res.json({ message: "Успешный вход!", user: { username: user.login, role: user.role, group: user.group } });
+            res.json({ message: "Успешный вход!", user: { username: user.login, user_id:user.id, role: user.role, group: user.group } });
         });
     });
 };
+

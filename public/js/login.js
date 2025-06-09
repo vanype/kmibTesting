@@ -18,7 +18,7 @@ async function submitAnswers(event) {
 	}
 
 	try {
-		const response = await fetch("http://192.168.0.126:3000/auth/login", {
+		const response = await fetch("/auth/login", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({ username: login, password: pass })
@@ -33,7 +33,10 @@ async function submitAnswers(event) {
 			console.log(result.user.group);
 			localStorage.setItem("group", result.user.group);
 			localStorage.setItem("username", result.user.username);
-			window.location.href = "profile.html";
+			localStorage.setItem("user_id", result.user.user_id);
+			if(result.user.role == "admin") window.location.href = "admin.html";
+			else window.location.href = "profile.html";
+			
 		} else {
 			alert("Не удалось войти");
 		}

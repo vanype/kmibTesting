@@ -1,12 +1,28 @@
+function escapeHTML(str) {
+    return str.replace(/[&<>"']/g, (match) => {
+        const escapes = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+        };
+        return escapes[match];
+    });
+}
+
+
 async function loadQuestions() {
     try {
-        const group = localStorage.getItem("selectedGroup"); // Получаем выбранную группу
-        if (!group) {
+        const test = localStorage.getItem("selectedGroup"); // Получаем выбранную группу
+        const user_group = localStorage.getItem("group"); // Получаем выбранную группу
+        if (!test) {
             alert("Группа не выбрана! Вернитесь на главную страницу и выберите группу.");
             return;
         }
 
-        const response = await fetch(`http://192.168.0.126:3000/questions?group=${encodeURIComponent(group)}`);
+        const response = await fetch(`/questions?group=${encodeURIComponent(test)}&user_group=${encodeURIComponent(user_group)}`);
+
         const questions = await response.json();
         const container = document.getElementById("questions-container");
         container.innerHTML = "";
@@ -20,14 +36,15 @@ async function loadQuestions() {
             const questionBlock = document.createElement("div");
             questionBlock.classList.add("mb-3");
             questionBlock.innerHTML = `
-                <p><strong>${index + 1}. <q>${q.question}</q></strong></p>
-                ${q.answers.map(answer => `
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="question${q.id}" value="${answer}" required>
-                        <label class="form-check-label">${answer}</label>
-                    </div>
-                `).join('')}
-            `;
+				<p><strong>${index + 1}. <q>${escapeHTML(q.question)}</q></strong></p>
+				${q.answers.map(answer => `
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="question${q.id}" value="${escapeHTML(answer)}" required>
+						<label class="form-check-label">${escapeHTML(answer)}</label>
+					</div>
+				`).join('')}
+			`;
+
             container.appendChild(questionBlock);
         });
 
@@ -57,7 +74,7 @@ async function submitAnswers() {
     }
 
     try {
-        const response = await fetch("http://192.168.0.126:3000/questions/submit-answers", {
+        const response = await fetch("/questions/submit-answers", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ group: localStorage.getItem("selectedGroup"), answers })

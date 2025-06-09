@@ -58,7 +58,7 @@ function getUser(username, callback) {
         });
     } else {
         // Ищем конкретного пользователя
-        db.get("SELECT login, role, password, [group] FROM users WHERE login = ?", [username], (err, row) => {
+        db.get("SELECT id, login, role, password, [group] FROM users WHERE login = ?", [username], (err, row) => {
             if (err) {
                 return callback(err);
             }
