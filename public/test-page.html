@@ -6,58 +6,38 @@
   <title>Тестирование</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    html, body {
-      height: 100%;
+    body {
       margin: 0;
       background-color: #f8f9fa;
+      padding: 1rem;
       display: flex;
       justify-content: center;
-      padding: 2rem 1rem;
-      box-sizing: border-box;
-    }
-
-    body {
-      /* Убираем align-items, чтобы не выравнивать по центру вертикально — будет сверху */
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
     }
 
     .container {
-      max-width: 600px;
-      width: 100%;
       background: white;
       padding: 1.5rem;
       border-radius: 0.5rem;
       box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 
-      /* Используем min-height вместо фиксированной высоты, чтобы не растягивать лишнего */
-      min-height: 60vh;
+      width: 100%;
+      max-width: 600px;
 
-      /* Flex-контейнер для правильного растягивания вопросов */
       display: flex;
       flex-direction: column;
-      overflow: hidden;
+      /* не фиксируем высоту */
     }
 
     #questions-container {
-      flex-grow: 1;
       overflow-y: auto;
       padding-right: 10px;
       margin-bottom: 1rem;
-      min-height: 0; /* Чтобы flex корректно работал */
+      max-height: 60vh; /* ограничим максимум, чтобы не раздувалось */
+      min-height: 200px; /* чтобы не сжимался до 0 */
     }
 
     #submit-test {
       flex-shrink: 0;
-    }
-
-    /* Для мобильных уменьшаем min-height, чтобы не занимать много места */
-    @media (max-width: 576px) {
-      .container {
-        min-height: auto;
-        padding: 1rem;
-      }
     }
   </style>
 </head>
@@ -65,7 +45,7 @@
   <div class="container">
     <h1 class="text-center mb-3">Тест</h1>
     <div id="questions-container">
-      <!-- Вопросы будут сюда -->
+      <!-- Вопросы сюда -->
     </div>
     <button id="submit-test" class="btn btn-primary w-100">Отправить ответы</button>
   </div>
